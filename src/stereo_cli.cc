@@ -3,8 +3,9 @@
 
 #include <Eigen/Dense>
 #include <gflags/gflags.h>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
+//#include <opencv2/core/core.hpp>
+//#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/opencv.hpp>
 
 #include "furry/common/str.h"
 #include "furry/gui/window_QT.h"
@@ -77,7 +78,7 @@ Mat DrawEpipolarLines(const Mat &image, const Vector3d &epipole,
 }
 
 int main(int argc, char *argv[]) {
-  gflags::ParseCommandLineFlags(&argc, &argv, true);
+  google::ParseCommandLineFlags(&argc, &argv, true);
   vector<Camera*> all_cameras;
   ReadCameras(StringPrintf("%s/%s_cameras.txt",
                            FLAGS_in_dir.c_str(),
